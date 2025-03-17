@@ -1,39 +1,70 @@
 import React from "react";
-import Header from "./Header";
+import Header from "./Header"; // Adjust the path if needed
+import { Box, Typography, Button, Container } from "@mui/material";
+
 const HeroSection = () => {
   return (
-    
-    <section className="relative w-full h-screen bg-cover bg-center flex items-center justify-center text-center px-6 md:px-12 lg:px-24"
-      style={{ backgroundImage: "url('/hero-bg.jpg')" }}>
+    <Box
+      component="section"
+      sx={{
+        position: "relative",
+        width: "100%",
+        height: "100vh",
+        backgroundImage: "url('/hero-bg.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        display: "flex",
+        flexDirection: "column",
+        "&::before": {
+            content: "''",
+            position: "absolute",
+            inset: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+          },
+      }}
+    >
+      {/* Header */}
+      <Header />
 
-      {/* Overlay for better readability */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      {/* Hero Content */}
+      <Box
+        sx={{
+          flex: 1,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          position: "relative",
+          px: { xs: 3, md: 6, lg: 12},
+        }}
+      >
+        <Container maxWidth="md" sx={{ position: "relative", zIndex: 10, color: "white" }}>
+          <Typography variant="subtitle1" color="#fff" sx={{ textTransform: "uppercase", letterSpacing: 1 }}>
+            Welcome to Our Freelance Solutions
+          </Typography>
+          <Typography variant="h3" fontWeight={300} mt={2} fontSize={60}>
+            Hire top professionals to transform your {" "}
+            <Typography component="span" color="#bff747" fontWeight={700} fontSize={32}>
+              ideas into reality
+            </Typography>
+          </Typography>
+          <Typography variant="body1" color="gray.200" mt={2}>
+            Freelancing has become a transformative career choice in today's dynamic work environment,
+            offering individuals the freedom to work independently and pursue diverse projects across industries.
+          </Typography>
 
-      {/* Content */}
-      <div className="relative z-10 text-white w-full max-w-3xl">
-        <p className="text-sm md:text-lg uppercase tracking-wide text-green-400">
-          Welcome to Our Freelance Solutions
-        </p>
-        <h1 className="text-3xl md:text-5xl font-bold leading-tight mt-2">
-          Hire top professionals to transform your <span className="text-green-400">ideas into reality</span>
-        </h1>
-        <p className="text-sm md:text-lg mt-4 text-gray-200">
-          Freelancing has become a transformative career choice in today's dynamic work environment, 
-          offering individuals the freedom to work independently and pursue diverse projects across industries.
-        </p>
-
-        {/* Buttons */}
-        <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
-          <button className="px-6 py-3 bg-green-500 text-white rounded-full font-medium hover:bg-green-600 transition">
-            Contact Now
-          </button>
-          <button className="px-6 py-3 bg-gray-700 text-white rounded-full font-medium flex items-center gap-2 hover:bg-gray-600 transition">
-            Explore More
-            <span className="bg-green-500 w-6 h-6 flex items-center justify-center rounded-full">➜</span>
-          </button>
-        </div>
-      </div>
-    </section>
+          {/* Buttons */}
+          <Box sx={{ mt: 4, display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: 2, justifyContent: "center" }}>
+            <Button variant="contained" color="success" size="large">
+              Contact Now
+            </Button>
+            <Button variant="contained" color="secondary" size="large">
+              Explore More
+            </Button>
+          </Box>
+        </Container>
+      </Box>
+    </Box>
   );
 };
 
