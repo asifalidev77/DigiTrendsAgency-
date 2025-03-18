@@ -40,8 +40,8 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
               <Card sx={{ background: '#121212', borderRadius: '16px', overflow: 'hidden' }}>
-                <Box sx={{ position: 'relative', height: '200px' }}>
-                  <img src={service.image} alt={service.title} />
+                <Box sx={{ position: 'relative', height: '300px' }}>
+                  <img src={service.image} alt={service.title}/>
                 </Box>
                 <CardContent>
                   <Typography variant="h5" sx={{ color: 'white', display: 'flex', alignItems: 'center', gap: 1 }}>

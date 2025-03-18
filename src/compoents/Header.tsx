@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="sticky" sx={{ background: "transparent", maxWidth: "1300px", margin: "auto", boxShadow: "none" }}>
+    <AppBar  sx={{ background: "transparent", maxWidth: "1300px", margin: "auto", boxShadow: "none" }}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         {/* Logo */}
         <Box component="img" src="/logo.png" alt="Logo" sx={{ height: 40 }} />
@@ -93,5 +93,4 @@ const Header = () => {
     </AppBar>
   );
 };
-
 export default Header;
