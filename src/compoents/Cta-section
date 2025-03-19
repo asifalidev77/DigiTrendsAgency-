@@ -1,0 +1,168 @@
+"use client"
+
+import type React from "react"
+import { Box, Container, Typography, Button, useMediaQuery } from "@mui/material"
+import { styled } from "@mui/material/styles"
+import { useTheme } from "@mui/material/styles"
+import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward"
+
+// Custom styled components
+const SectionContainer = styled(Box)(({ theme }) => ({
+  backgroundColor: "#0a0a0a",
+  color: "#fff",
+  padding: theme.spacing(10, 0),
+  position: "relative",
+  overflow: "hidden",
+  backgroundImage: "linear-gradient(to bottom right, rgba(20, 20, 20, 0.8), rgba(10, 10, 10, 1))",
+}))
+
+const GreenButton = styled(Button)(({ theme }) => ({
+  backgroundColor: "#c1ff2d",
+  color: "#000",
+  borderRadius: "50%",
+  width: 120,
+  height: 120,
+  minWidth: "auto",
+  fontWeight: "bold",
+  fontSize: "1rem",
+  textTransform: "none",
+  boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
+  position: "relative",
+  "&:hover": {
+    backgroundColor: "#b1ef1d",
+    transform: "scale(1.05)",
+  },
+  transition: "transform 0.3s ease",
+  [theme.breakpoints.down("sm")]: {
+    width: 100,
+    height: 100,
+    fontSize: "0.9rem",
+  },
+}))
+
+const ButtonArrow = styled(ArrowOutwardIcon)(({ theme }) => ({
+  position: "absolute",
+  top: "25%",
+  right: "25%",
+  fontSize: "1.2rem",
+}))
+
+const DecorativeElement = styled(Box)(({ theme }) => ({
+  position: "absolute",
+  right: "5%",
+  top: "50%",
+  transform: "translateY(-50%)",
+  width: "300px",
+  height: "300px",
+  opacity: 0.3,
+  zIndex: 0,
+  [theme.breakpoints.down("md")]: {
+    width: "200px",
+    height: "200px",
+    right: "0",
+    opacity: 0.2,
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: "150px",
+    height: "150px",
+    opacity: 0.1,
+  },
+}))
+
+const CTASection: React.FC = () => {
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
+  const isTablet = useMediaQuery(theme.breakpoints.down("md"))
+
+  return (
+    <SectionContainer>
+      <Container sx={{ maxWidth: "1300px", position: "relative", zIndex: 1 }}>
+        {/* Decorative Element */}
+        <DecorativeElement>
+          <svg width="100%" height="100%" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M150,50 C200,50 240,90 240,140 C240,190 200,230 150,230 C100,230 60,190 60,140 C60,90 100,50 150,50 Z"
+              stroke="#ffffff"
+              strokeWidth="2"
+              fill="none"
+              opacity="0.3"
+              transform="rotate(45 150 150)"
+            />
+            <path
+              d="M150,70 C190,70 220,100 220,140 C220,180 190,210 150,210 C110,210 80,180 80,140 C80,100 110,70 150,70 Z"
+              stroke="#ffffff"
+              strokeWidth="2"
+              fill="none"
+              opacity="0.5"
+              transform="rotate(30 150 150)"
+            />
+            <path
+              d="M150,90 C180,90 200,110 200,140 C200,170 180,190 150,190 C120,190 100,170 100,140 C100,110 120,90 150,90 Z"
+              stroke="#ffffff"
+              strokeWidth="2"
+              fill="none"
+              opacity="0.7"
+              transform="rotate(15 150 150)"
+            />
+            <path
+              d="M250,150 C250,150 200,250 150,250 C100,250 50,200 50,150 C50,100 100,50 150,50 C200,50 250,150 250,150 Z"
+              stroke="#ffffff"
+              strokeWidth="2"
+              fill="none"
+              opacity="0.2"
+            />
+          </svg>
+        </DecorativeElement>
+
+        {/* Content */}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+            position: "relative",
+          }}
+        >
+          <Typography
+            variant="subtitle1"
+            sx={{
+              fontWeight: "bold",
+              mb: 2,
+              letterSpacing: 1,
+            }}
+          >
+            LET&apos;S COLLABORATE
+          </Typography>
+
+          <Typography
+            variant="h1"
+            sx={{
+              fontWeight: "bold",
+              fontSize: { xs: "3rem", sm: "4rem", md: "6rem", lg: "7rem" },
+              lineHeight: 1.1,
+              letterSpacing: { xs: 2, md: 4 },
+              mb: { xs: 6, md: 8 },
+              position: "relative",
+            }}
+          >
+            LET&apos;S WORK
+            <Box
+              sx={{
+                position: "absolute",
+                left: "50%",
+                top: "50%",
+                transform: "translate(-50%, 0%)",
+                zIndex: 2,
+              }}
+            >
+            </Box>
+            <br />
+            TOGETHER
+          </Typography>
+        </Box>
+      </Container>
+    </SectionContainer>
+  )
+}
+export default CTASection
